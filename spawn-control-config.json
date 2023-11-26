@@ -1,0 +1,24 @@
+{
+  "allowedMobs": ["minecraft:zombie", "minecraft:skeleton", "minecraft:creeper"],
+  "allowAnyMobSpawn": false,
+  "spawnConditions": {
+    "minecraft:zombie": {
+      "lightLevels": [15],
+      "biomes": ["minecraft:plains"],
+      "whitelistedDimensions": ["minecraft:overworld"],
+      "dayOrNight": "day"
+    },
+    "minecraft:skeleton": {
+      "lightLevels": [7, 8, 9],
+      "biomes": ["minecraft:forest", "minecraft:plains", "minecraft:taiga"],
+      "whitelistedDimensions": ["minecraft:overworld"],
+      "dayOrNight": "both"
+    },
+    "minecraft:creeper": {
+      "lightLevels": [5, 6, 7],
+      "biomes": ["minecraft:desert", "minecraft:badlands", "minecraft:savannah"],
+      "whitelistedDimensions": ["minecraft:overworld"],
+      "dayOrNight": "both"
+    }
+  }
+}
