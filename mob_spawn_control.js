@@ -1,13 +1,24 @@
+/**
+ * Spawn Control Script by Liopyu
+ * GitHub Repo: https://github.com/liopyu/spawn_control
+ * - A KubeJS script designed for advanced mob spawning control in Minecraft.
+ * - Allows precise configuration for individual mob types based on light levels, biomes, dimensions, and more.
+ * - For the latest updates and discussions, visit the GitHub repository.
+ */
+
 // Define your allowed mobs array
-const allowedMobs = ['minecraft:zombie', 'minecraft:skeleton', 'minecraft:creeper'];
+const allowedMobs = ['minecraft:zombie', 'minecraft:skeleton', 'minecraft:creeper', /^(.+:.+)$/];
+
+// Define if any mob is allowed to spawn
+const allowAnyMobSpawn = true; // Set to true to allow any mob, false to use the whitelist
 
 // Define your mob type conditions
 const mobTypeConditions = {
     'minecraft:zombie': {
-        lightLevels: [12],
+        lightLevels: [15],
         biomes: ['minecraft:plains'],
-        whitelistedDimensions: ['minecraft:the_end'],
-        dayOrNight: 'night'
+        whitelistedDimensions: ['minecraft:overworld'],
+        dayOrNight: 'day'
     },
     'minecraft:skeleton': {
         lightLevels: [7, 8, 9],
@@ -26,7 +37,7 @@ const mobTypeConditions = {
 
 // Function to check if a value is in an array
 function isInArray(value, array) {
-    return array.includes(value);
+    return array.indexOf(value) !== -1;
 }
 
 // Register the function to handle the mob spawning event
@@ -36,33 +47,37 @@ EntityEvents.spawned(event => {
 
     // Cancel the event if the entity type is not in allowedMobs
     if (!isInArray(entity.type, allowedMobs)) {
-        event.cancel();
-        return;
+        if (allowAnyMobSpawn) {
+            // Do Nothing
+        } else {
+            event.cancel();
+            return;
+        }
     }
 
     // Move the conditions here
     const mobConditions = mobTypeConditions[entity.type];
 
     // Return early if mobConditions are not defined
-    if (!mobConditions) return;
+    if (!mobConditions) {
+        return;
+    }
 
-    // Get entity information
     const biomeId = entity.block.biomeId;
     const blockLightLevel = entity.block.getLight();
     const daytime = event.level.getDayTime();
-    const entityDimension = entity.level.dimension.toString();
 
     // Normalize the biomeId and the whitelisted biomes for case insensitivity
     const normalizedBiomeId = biomeId.toString().toLowerCase();
+
+    // Check if the biome is in the whitelist using a for loop without indexOf
     const normalizedBiomes = mobConditions.biomes.map(biome => biome.toLowerCase());
-
-    // Check if the biome is in the whitelist
-    const isBiomeInWhitelist = normalizedBiomes.includes(normalizedBiomeId);
-
-    // Check if the entity's dimension is whitelisted
-    if (!isInArray(entityDimension, mobConditions.whitelistedDimensions)) {
-        event.cancel();
-        return;
+    let isBiomeInWhitelist = false;
+    for (let i = 0; i < normalizedBiomes.length; i++) {
+        if (normalizedBiomeId === normalizedBiomes[i]) {
+            isBiomeInWhitelist = true;
+            break;
+        }
     }
 
     // Check if all conditions are met for the entity to spawn
@@ -72,8 +87,8 @@ EntityEvents.spawned(event => {
         blockLightLevel <= mobConditions.lightLevels[0] &&
         isBiomeInWhitelist &&
         ((mobConditions.dayOrNight === 'day' && daytime >= 0 && daytime <= 13000) ||
-        (mobConditions.dayOrNight === 'night' && (daytime > 13000 || daytime === 0)) ||
-        mobConditions.dayOrNight === 'both')
+            (mobConditions.dayOrNight === 'night' && (daytime > 13000 || daytime === 0)) ||
+            mobConditions.dayOrNight === 'both')
     ) {
         // Do nothing, let the entity spawn
     } else {
