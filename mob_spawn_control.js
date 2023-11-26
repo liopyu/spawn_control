@@ -7,7 +7,7 @@
  */
 
 // Define your allowed mobs array
-const allowedMobs = ['minecraft:zombie', 'minecraft:skeleton', 'minecraft:creeper', /^(.+:.+)$/];
+const allowedMobs = ['minecraft:zombie', 'minecraft:skeleton', 'minecraft:creeper'];
 
 // Define if any mob is allowed to spawn
 const allowAnyMobSpawn = true; // Set to true to allow any mob, false to use the whitelist
