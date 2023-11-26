@@ -39,7 +39,7 @@ EntityEvents.spawned(event => {
 
     const biomeId = entity.block.biomeId;
     const blockLightLevel = entity.block.getLight();
-    const daytime = event.level.getDayTime();
+    const daytime = event.level.getDayTime()
 
     // Normalize the biomeId and the whitelisted biomes for case insensitivity
     const normalizedBiomeId = biomeId.toString().toLowerCase();
