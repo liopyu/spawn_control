@@ -1,0 +1,20 @@
+{
+    "minecraft:zombie": {
+      "lightLevels": [12],
+      "biomes": ["minecraft:plains"],
+      "whitelistedDimensions": ["minecraft:the_end"],
+      "dayOrNight": "night"
+    },
+    "minecraft:skeleton": {
+      "lightLevels": [7, 8, 9],
+      "biomes": ["minecraft:forest", "minecraft:plains", "minecraft:taiga"],
+      "whitelistedDimensions": ["minecraft:overworld"],
+      "dayOrNight": "both"
+    },
+    "minecraft:creeper": {
+      "lightLevels": [5, 6, 7],
+      "biomes": ["minecraft:desert", "minecraft:badlands", "minecraft:savannah"],
+      "whitelistedDimensions": ["minecraft:overworld"],
+      "dayOrNight": "both"
+    }
+  }
