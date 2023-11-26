@@ -1,39 +1,13 @@
-/**
- * Spawn Control Script by Liopyu
- * GitHub Repo: https://github.com/liopyu/spawn_control
- * - A KubeJS script designed for advanced mob spawning control in Minecraft.
- * - Allows precise configuration for individual mob types based on light levels, biomes, dimensions, and more.
- * - For the latest updates and discussions, visit the GitHub repository.
- */
+// Define the path to the configuration file
+const configPath = 'config/spawn-control-config.json';
 
-// Define your allowed mobs array
-const allowedMobs = ['minecraft:zombie', 'minecraft:skeleton', 'minecraft:creeper'];
+// Read the configuration from the file
+const config = JsonIO.read(configPath);
 
-// Define if any mob is allowed to spawn
-const allowAnyMobSpawn = true; // Set to true to allow any mob, false to use the whitelist
-
-// Define your mob type conditions
-const mobTypeConditions = {
-    'minecraft:zombie': {
-        lightLevels: [15],
-        biomes: ['minecraft:plains'],
-        whitelistedDimensions: ['minecraft:overworld'],
-        dayOrNight: 'day'
-    },
-    'minecraft:skeleton': {
-        lightLevels: [7, 8, 9],
-        biomes: ['minecraft:forest', 'minecraft:plains', 'minecraft:taiga'],
-        whitelistedDimensions: ['minecraft:overworld'],
-        dayOrNight: 'both'
-    },
-    'minecraft:creeper': {
-        lightLevels: [5, 6, 7],
-        biomes: ['minecraft:desert', 'minecraft:badlands', 'minecraft:savannah'],
-        whitelistedDimensions: ['minecraft:overworld'],
-        dayOrNight: 'both'
-    },
-    // Add conditions for other mob types as needed
-};
+// Extract data from the configuration
+const allowedMobs = config.allowedMobs || [];
+const allowAnyMobSpawn = config.allowAnyMobSpawn || false;
+const mobTypeConditions = config.spawnConditions || {};
 
 // Function to check if a value is in an array
 function isInArray(value, array) {
@@ -92,6 +66,6 @@ EntityEvents.spawned(event => {
     ) {
         // Do nothing, let the entity spawn
     } else {
-        event.cancel(); // Cancel the event if any of the conditions is not met
+        event.cancel(); // Cancel the event if any of the conditions are not met
     }
 });
