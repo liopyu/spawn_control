@@ -12,7 +12,7 @@
       "lightLevels": [7, 8, 9],
       "biomes": ["minecraft:forest", "minecraft:plains", "minecraft:taiga"],
       "whitelistedDimensions": ["minecraft:overworld"],
-      "dayOrNight": "both"
+      "dayOrNight": "night"
     },
     "minecraft:creeper": {
       "lightLevels": [5, 6, 7],

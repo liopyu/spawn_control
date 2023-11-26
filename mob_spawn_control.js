@@ -18,7 +18,11 @@ function isInArray(value, array) {
 EntityEvents.spawned(event => {
     // Define constants
     const entity = event.entity;
-
+    
+    // Skip the logic if the entity is a player
+    if (entity.isPlayer()) {
+        return;
+    }
     // Cancel the event if the entity type is not in allowedMobs
     if (!isInArray(entity.type, allowedMobs)) {
         if (allowAnyMobSpawn) {
