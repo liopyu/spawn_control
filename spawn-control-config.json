@@ -3,22 +3,92 @@
   "allowAnyMobSpawn": false,
   "spawnConditions": {
     "minecraft:zombie": {
-      "lightLevels": [15],
+      "lightLevels": [20],
       "biomes": ["minecraft:plains"],
       "whitelistedDimensions": ["minecraft:overworld"],
-      "dayOrNight": "day"
+      "dayOrNight": "night",
+      "equipment": {
+        "helmet": [
+          ["minecraft:leather_helmet", 0.5], 
+          ["minecraft:iron_helmet", 0.3]
+        ],
+        "chestplate": [
+          ["minecraft:diamond_chestplate", 0.7]
+        ],
+        "leggings": [
+          ["minecraft:diamond_leggings", 0.5],
+          ["minecraft:iron_leggings", 0.3]
+        ],
+        "boots": [
+          ["minecraft:diamond_boots", 0.3],
+          ["minecraft:iron_boots", 0.5]
+        ],
+        "offhand": [
+          ["minecraft:shield", 0.2]
+        ],
+        "mainhand": [
+          ["minecraft:diamond_sword", 0.7],
+          ["minecraft:iron_sword", 0.5]
+        ]
+      }
     },
     "minecraft:skeleton": {
       "lightLevels": [7, 8, 9],
       "biomes": ["minecraft:forest", "minecraft:plains", "minecraft:taiga"],
       "whitelistedDimensions": ["minecraft:overworld"],
-      "dayOrNight": "night"
+      "dayOrNight": "both",
+      "equipment": {
+        "helmet": [
+          ["minecraft:iron_helmet", 0.8],
+          ["minecraft:leather_helmet", 0.2]
+        ],
+        "chestplate": [
+          ["minecraft:iron_chestplate", 0.5],
+          ["minecraft:leather_chestplate", 0.8]
+        ],
+        "leggings": [
+          ["minecraft:iron_leggings", 0.7],
+          ["minecraft:leather_leggings", 0.5]
+        ],
+        "boots": [
+          ["minecraft:iron_boots", 0.4],
+          ["minecraft:leather_boots", 0.6]
+        ],
+        "offhand": [
+          ["minecraft:bow", 0.6],
+          ["minecraft:crossbow", 0.4]
+        ],
+        "mainhand": [
+          ["minecraft:bow", 0.5],
+          ["minecraft:crossbow", 0.5]
+        ]
+      }
     },
     "minecraft:creeper": {
       "lightLevels": [5, 6, 7],
       "biomes": ["minecraft:desert", "minecraft:badlands", "minecraft:savannah"],
       "whitelistedDimensions": ["minecraft:overworld"],
-      "dayOrNight": "both"
+      "dayOrNight": "both",
+      "equipment": {
+        "helmet": [
+          ["minecraft:creeper_head", 0.2]
+        ],
+        "chestplate": [
+          ["minecraft:leather_chestplate", 0.8]
+        ],
+        "leggings": [
+          ["minecraft:leather_leggings", 0.7]
+        ],
+        "boots": [
+          ["minecraft:leather_boots", 0.6]
+        ],
+        "offhand": [
+          ["minecraft:tnt", 0.3]
+        ],
+        "mainhand": [
+          ["minecraft:flint_and_steel", 0.4]
+        ]
+      }
     }
   }
 }
