@@ -1,9 +1,9 @@
 {
-  "allowedMobs": ["minecraft:zombie", "minecraft:skeleton", "minecraft:creeper"],
   "allowAnyMobSpawn": false,
+  "allowedMobs": ["minecraft:zombie", "minecraft:skeleton", "minecraft:creeper"],
   "spawnConditions": {
     "minecraft:zombie": {
-      "lightLevels": [20],
+      "lightLevels": [15],
       "biomes": ["minecraft:plains"],
       "whitelistedDimensions": ["minecraft:overworld"],
       "dayOrNight": "night",
@@ -12,17 +12,12 @@
           ["minecraft:leather_helmet", 0.5], 
           ["minecraft:iron_helmet", 0.3]
         ],
-        "chestplate": [
-          ["minecraft:diamond_chestplate", 0.7]
-        ],
+        "chestplate": [],
         "leggings": [
           ["minecraft:diamond_leggings", 0.5],
           ["minecraft:iron_leggings", 0.3]
         ],
-        "boots": [
-          ["minecraft:diamond_boots", 0.3],
-          ["minecraft:iron_boots", 0.5]
-        ],
+        "boots": [],
         "offhand": [
           ["minecraft:shield", 0.2]
         ],

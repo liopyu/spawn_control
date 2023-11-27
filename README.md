@@ -28,30 +28,17 @@ Spawn Control is a KubeJS script designed for advanced mob spawning control in M
           "whitelistedDimensions": ["minecraft:overworld"],
           "dayOrNight": "day",
           "equipment": {
-            "helmet": [
-              ["minecraft:diamond_helmet", 0.5],
-              ["minecraft:iron_helmet", 0.3]
-            ],
+            "helmet": [],
             "chestplate": [
               ["minecraft:diamond_chestplate", 0.8],
               ["minecraft:iron_chestplate", 0.2]
             ],
-            "leggings": [
-              ["minecraft:diamond_leggings", 1],
-              ["minecraft:iron_leggings", 0.5]
-            ],
-            "boots": [
-              ["minecraft:diamond_boots", 0.3],
-              ["minecraft:iron_boots", 0.7]
-            ],
+            "leggings": [],
+            "boots": [],
             "offhand": [
-              ["minecraft:shield", 0.2],
-              ["minecraft:totem_of_undying", 0.1]
+              ["minecraft:shield", 0.2]
             ],
-            "mainhand": [
-              ["minecraft:diamond_sword", 0.7],
-              ["minecraft:bow", 0.3]
-            ]
+            "mainhand": []
           }
         },
         "minecraft:skeleton": {

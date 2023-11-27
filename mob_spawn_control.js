@@ -63,8 +63,8 @@ EntityEvents.spawned(event => {
     // Define constants
     const entity = event.entity;
 
-    // Skip the logic if the entity is a player
-    if (entity.isPlayer()) {
+    // Skip the logic if the entity is a player or is not living
+    if (entity.isPlayer() || !entity.isLiving()) {
         return;
     }
 
